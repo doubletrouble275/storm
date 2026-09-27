@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="definitions_ce3225fe-659f-4497-845e-94de9377a438" targetNamespace="http://www.omg.org/spec/BPMN/20100524/MODEL">
+  <process id="Process_AI_Generated" name="AI Generated Process" isExecutable="true">
+    <startEvent id="n1" name="Начать уровень">
+      <outgoing>f1</outgoing>
+    </startEvent>
+    <serviceTask id="n2" name="Инициализировать параметры">
+      <incoming>f1</incoming>
+      <outgoing>f2</outgoing>
+    </serviceTask>
+    <serviceTask id="n3" name="Сгенерировать волну">
+      <incoming>f2</incoming>
+      <incoming>f11</incoming>
+      <outgoing>f3</outgoing>
+    </serviceTask>
+    <parallelGateway id="n4" name="Запустить параллельные потоки">
+      <incoming>f3</incoming>
+      <outgoing>f4</outgoing>
+      <outgoing>f5</outgoing>
+    </parallelGateway>
+    <serviceTask id="n5" name="Движение и атака противников">
+      <incoming>f4</incoming>
+      <outgoing>f6</outgoing>
+    </serviceTask>
+    <userTask id="n6" name="Управлять башнями">
+      <incoming>f5</incoming>
+      <outgoing>f7</outgoing>
+    </userTask>
+    <parallelGateway id="n7" name="Завершить параллельные потоки">
+      <incoming>f6</incoming>
+      <incoming>f7</incoming>
+      <outgoing>f8</outgoing>
+    </parallelGateway>
+    <exclusiveGateway id="n8" name="Проверить исход волны">
+      <incoming>f8</incoming>
+      <outgoing>f9</outgoing>
+      <outgoing>f10</outgoing>
+    </exclusiveGateway>
+    <endEvent id="n9" name="Завершить игру поражением">
+      <incoming>f9</incoming>
+    </endEvent>
+    <exclusiveGateway id="n10" name="Проверить наличие волн">
+      <incoming>f10</incoming>
+      <outgoing>f11</outgoing>
+      <outgoing>f12</outgoing>
+    </exclusiveGateway>
+    <endEvent id="n11" name="Завершить уровень победой">
+      <incoming>f12</incoming>
+    </endEvent>
+    <sequenceFlow id="f1" sourceRef="n1" targetRef="n2" />
+    <sequenceFlow id="f2" sourceRef="n2" targetRef="n3" />
+    <sequenceFlow id="f3" sourceRef="n3" targetRef="n4" />
+    <sequenceFlow id="f4" sourceRef="n4" targetRef="n5" />
+    <sequenceFlow id="f5" sourceRef="n4" targetRef="n6" />
+    <sequenceFlow id="f6" sourceRef="n5" targetRef="n7" />
+    <sequenceFlow id="f7" sourceRef="n6" targetRef="n7" />
+    <sequenceFlow id="f8" sourceRef="n7" targetRef="n8" />
+    <sequenceFlow id="f9" sourceRef="n8" targetRef="n9" />
+    <sequenceFlow id="f10" sourceRef="n8" targetRef="n10" />
+    <sequenceFlow id="f11" sourceRef="n10" targetRef="n3" />
+    <sequenceFlow id="f12" sourceRef="n10" targetRef="n11" />
+  </process>
+  <collaboration id="Collab_1">
+    <participant id="Participant_1" name="Main Pool" processRef="Process_AI_Generated" />
+  </collaboration>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_Collab_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_Collab_1" bpmnElement="Collab_1">
+      <bpmndi:BPMNShape id="Participant_1_di" bpmnElement="Participant_1">
+        <dc:Bounds x="0" y="0" width="1650" height="700" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="n1_di" bpmnElement="n1">
+        <dc:Bounds x="132" y="122" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="n2_di" bpmnElement="n2">
+        <dc:Bounds x="250" y="100" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="n3_di" bpmnElement="n3">
+        <dc:Bounds x="400" y="100" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="n4_di" bpmnElement="n4">
+        <dc:Bounds x="575" y="395" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="n5_di" bpmnElement="n5">
+        <dc:Bounds x="700" y="380" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="n6_di" bpmnElement="n6">
+        <dc:Bounds x="700" y="520" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="n7_di" bpmnElement="n7">
+        <dc:Bounds x="875" y="395" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="n8_di" bpmnElement="n8" isMarkerVisible="true">
+        <dc:Bounds x="1025" y="395" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="n9_di" bpmnElement="n9">
+        <dc:Bounds x="1182" y="262" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="n10_di" bpmnElement="n10" isMarkerVisible="true">
+        <dc:Bounds x="1325" y="115" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="n11_di" bpmnElement="n11">
+        <dc:Bounds x="1482" y="122" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="f1_di" bpmnElement="f1">
+        <di:waypoint x="168" y="140" />
+        <di:waypoint x="250" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="f2_di" bpmnElement="f2">
+        <di:waypoint x="350" y="140" />
+        <di:waypoint x="400" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="f3_di" bpmnElement="f3">
+        <di:waypoint x="450" y="180" />
+        <di:waypoint x="450" y="420" />
+        <di:waypoint x="575" y="420" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="f4_di" bpmnElement="f4">
+        <di:waypoint x="625" y="420" />
+        <di:waypoint x="700" y="420" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="f5_di" bpmnElement="f5">
+        <di:waypoint x="600" y="445" />
+        <di:waypoint x="600" y="560" />
+        <di:waypoint x="700" y="560" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="f6_di" bpmnElement="f6">
+        <di:waypoint x="800" y="420" />
+        <di:waypoint x="875" y="420" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="f7_di" bpmnElement="f7">
+        <di:waypoint x="800" y="560" />
+        <di:waypoint x="900" y="560" />
+        <di:waypoint x="900" y="445" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="f8_di" bpmnElement="f8">
+        <di:waypoint x="925" y="420" />
+        <di:waypoint x="1025" y="420" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="f9_di" bpmnElement="f9">
+        <di:waypoint x="1075" y="420" />
+        <di:waypoint x="1200" y="420" />
+        <di:waypoint x="1200" y="298" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="f10_di" bpmnElement="f10">
+        <di:waypoint x="1075" y="420" />
+        <di:waypoint x="1350" y="420" />
+        <di:waypoint x="1350" y="165" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="f11_di" bpmnElement="f11">
+        <di:waypoint x="1325" y="140" />
+        <di:waypoint x="500" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="f12_di" bpmnElement="f12">
+        <di:waypoint x="1375" y="140" />
+        <di:waypoint x="1482" y="140" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
